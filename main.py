@@ -1,4 +1,5 @@
 # This is a sample Python script.
+import math
 import random
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -21,11 +22,10 @@ def game(options, win_words):  # define function for gameloop
     player_choice_index = options.index(player_choice)  # checks where the players choice is in the list
     print(
         f'you chose {player_choice} and computer chose {options[computer_choice]}!')  # tells what player and computer chose
-
     if player_choice_index == computer_choice:  # checks if indexes are same
         print('its a draw!')
     else:
-        for i in range(3):
+        for i in range(math.trunc(len(options) / 2)): # calculates the length of the list / 2 and cuts the decimal off.
             j = i + 1
             if computer_choice == (player_choice_index + j) % len(options):  # if the com choice is the remainder of 1 divided by the length of options
                 print(f'{player_choice} {win_words[player_choice_index][i]} {options[computer_choice]}, so you won!')
